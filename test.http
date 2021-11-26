@@ -1,1 +1,8 @@
+### all weather realted data for Bonn
+GET http://localhost:3000/Bonn
+### just weather status for Bonn
 GET http://localhost:3000/weather/Bonn
+### cat facts
+GET http://localhost:3000/
+### temperature for bonn
+GET http://localhost:3000/temp/Bonn
