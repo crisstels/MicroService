@@ -1,4 +1,5 @@
 const fetch = require('node-fetch')
+const cors = require('cors')
 const express = require('express')
 const path = require('path')
 require('dotenv').config();
@@ -6,6 +7,8 @@ const app = express()
 const port = 3001
 
 const apiKey = process.env.API_KEY;
+
+app.use(cors());
 
 // fetches data from open cat fact api, just for testing purposes
 function home(req, res) {
