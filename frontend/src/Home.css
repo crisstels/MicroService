@@ -8,6 +8,17 @@
     margin: 50px auto;
     width: 250px;
 }
-.button {
+/* .button {
     margin: 10px auto;
+} */
+.form-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+}
+.card-container {
+    display: flex;
+    justify-content: center;
+
 }
