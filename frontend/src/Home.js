@@ -5,10 +5,10 @@ import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
-import image from './images/Clouds.jpg';
 import './Home.css';
 import { useState } from 'react';
 import axios from 'axios';
+import { yellow } from '@mui/material/colors';
 
 const Home = (props) => {
     const [city, setCity] = useState('');
@@ -32,10 +32,10 @@ const Home = (props) => {
             </form>
             {data.length > 0 ? (
             // 
-            <Card sx={{maxWidth: 345}}>
+            <Card sx={{maxWidth: 500}}>
                 <CardMedia component="img"
                            height="140"
-                           image={image}
+                           image={`images/${data[0].main}.png`}
                            alt="weather symbol"
                 />
                 <CardContent>
