@@ -1,7 +1,7 @@
 ### all weather realted data for Bonn
 GET http://localhost:3001/bonn
 ### just weather status for Bonn
-GET http://localhost:3001/weather/Melbourne
+GET http://localhost:3001/weather/Bonn
 ### cat facts
 GET http://localhost:3001/
 ### temperature for bonn

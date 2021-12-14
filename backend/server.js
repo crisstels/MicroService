@@ -8,6 +8,7 @@ const port = 3001
 
 const apiKey = process.env.API_KEY;
 
+
 app.use(cors());
 
 // fetches data from open cat fact api, just for testing purposes
