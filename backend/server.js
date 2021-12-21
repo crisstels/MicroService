@@ -17,11 +17,13 @@ function home(req, res) {
 }
 
 // gets weather data from a certain location
-function weather(req, res) {
-  const location = req.params.location;
-    fetch(`https://openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`)
-    .then(res => res.json())
-    .then(json => res.send(json.weather))
+function weather(request, response) {
+  const location = request.params.location;
+  fetch(`https://openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`)
+    .then(result => result.json().then(json =>
+      response.status(result.status).send(json.weather || json)
+    ))
+    .catch(error => console.error(error))
 }
 
 //gets whole dataset for a certain city from weather api
