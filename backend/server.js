@@ -50,7 +50,7 @@ function temperature(request, response) {
 //local routes
 app.get('/', home)
 app.get('/weather/:location', weather)
-app.get('/:location', weather_all)
+//app.get('/:location', weather_all)
 app.get('/temp/:location', temperature);
 
 //start express server
