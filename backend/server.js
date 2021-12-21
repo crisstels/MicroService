@@ -12,8 +12,8 @@ const apiKey = process.env.API_KEY;
 app.use(cors());
 
 // fetches data from open cat fact api, just for testing purposes
-function home(req, res) {
-    res.sendFile(path.join(__dirname, '/index.html'));
+function home(request, response) {
+    response.sendFile(path.join(__dirname, '/index.html'));
 }
 
 // gets weather data from a certain location
@@ -27,20 +27,24 @@ function weather(request, response) {
 }
 
 //gets whole dataset for a certain city from weather api
-function weather_all(req, res) {
-    const location = req.params.location;
-    console.log("location: " + location);
+function weather_all(request, response) {
+    const location = request.params.location;
     fetch(`https://openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`)
-    .then(res => res.json())
-    .then(json => res.send(json))
+    .then(result => result.json().then(json =>
+      response.status(result.status).send(json)
+      ))
+    .catch(error => console.error(error))
+    
 }
 
 //fetches temperature for specific city
-function temperature(req, res) {
-    const location = req.params.location;
+function temperature(request, response) {
+    const location = request.params.location;
     fetch(`https://openweathermap.org/data/2.5/weather?q=${location}&appid=${apiKey}`)
-    .then(res => res.json())
-    .then(json => res.send(json.main));
+    .then(result => result.json().then(json => 
+      response.status(result.status).send(json.main || json)
+      ))
+    .catch(error => console.log(error))
 }
 
 //local routes
